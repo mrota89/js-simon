@@ -4,16 +4,12 @@ function randomNumber(min, max) {
   return result;
 }
 
-//dichiaro variabili
+//dichiaro variabili globali
 var numeriDaIndovinare = 5;
 var timing = 30;
 var numeroGenerato;
-var numeroUtente;
 var numeriGenerati = [];
 var numeriGeneratiAlert = [];
-var numeriInseriti = [];
-var numeriIndovinati = [];
-var numeriIndovinatiAlert = [];
 
 //genero numeri casuali
 while(numeriGenerati.length < numeriDaIndovinare) {
@@ -32,8 +28,16 @@ alert(numeriGeneratiAlert + '\nPremi Invio quando sei pronto.');
 
 //imposto callback anonima che sarà richiamata dopo 30 secondi dalla chiusura dell'alert.
 setTimeout(function(){
+
+  //dichiaro variabili locali
+  var numeroUtente;
+  var numeriInseriti = [];
+  var numeriIndovinati = [];
+  var numeriIndovinatiAlert = [];
+
   while(numeriInseriti.length < numeriDaIndovinare) {//finchè non saranno inseriti 5 numeri, resto nel ciclo while
     numeroUtente = parseInt(prompt('inserisci un numero'));
+    console.log(numeroUtente);
     if(isNaN(numeroUtente)) {
       alert('inserisci un numero!');
     } else {
