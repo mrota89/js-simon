@@ -7,6 +7,7 @@ function randomNumber(min, max) {
 //dichiaro variabili
 var numeriDaIndovinare = 5;
 var timing = 30;
+var numeroGenerato;
 var numeroUtente;
 var numeriGenerati = [];
 var numeriGeneratiAlert = [];
@@ -15,9 +16,12 @@ var numeriIndovinati = [];
 var numeriIndovinatiAlert = [];
 
 //genero numeri casuali
-for(var i = 0; i < numeriDaIndovinare; i++) {
-  numeriGenerati.push(randomNumber(1, 1000));
-  numeriGeneratiAlert.push('  ' + numeriGenerati[i]);
+while(numeriGenerati.length < numeriDaIndovinare) {
+  numeroGenerato = randomNumber(1, 1000);
+  if(!numeriGenerati.includes(numeroGenerato)) {
+    numeriGenerati.push(numeroGenerato);
+    numeriGeneratiAlert.push('  ' + numeroGenerato);
+  }
 }
 
 console.log('numeri generati:' + numeriGenerati);
