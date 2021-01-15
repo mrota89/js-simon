@@ -7,7 +7,8 @@ function randomNumber(min, max) {
 //dichiaro variabile per array numeri casuali
 var numeriDaIndovinare = 5;
 var numeriGenerati = [];
-var numeroInserito;
+var numeroUtente;
+var numeriInseriti = [];
 var numeriIndovinati = [];
 
 //genero numeri casuali
@@ -18,18 +19,23 @@ for(var i = 0; i < numeriDaIndovinare; i++) {
 console.log(numeriGenerati);
 
 //mostro all'utente i numeri generati
-alert('ora ti verranno mostrati 5 numeri. Memorizzali!')
+alert('Benvenuto in una nuova partita' + '\nOra ti verranno mostrati 5 numeri. Memorizzali!')
 alert(numeriGenerati);
+alert('Tra 30 secondi ti verrà chiesto di inserire i numeri che hai memorizzato' + '\nPremi ok per avviare il timer.')
 
+//imposto callback che sarà richiamata dopo 30 secondi
 setTimeout(function(){
-  for(var x = 0; x < numeriDaIndovinare; x++) {
-    numeroInserito = parseInt(prompt('inserisci un numero'));
-    if(numeriGenerati.includes(numeroInserito)) {
-      numeriIndovinati.push(numeroInserito);
+  while(numeriInseriti.length < numeriDaIndovinare) {
+    numeroUtente = parseInt(prompt('inserisci un numero'));
+    if(isNaN(numeroUtente)) {
+      alert('inserisci un numero!')
+    } else {
+      numeriInseriti.push(numeroUtente);
+      if(numeriGenerati.includes(numeroUtente)) {
+        numeriIndovinati.push(numeroUtente);
+      }
     }
   }
+  alert('Hai indovinato questi numeri: ' + numeriIndovinati + ' \nPer un totale di: ' + numeriIndovinati.length)
+  console.log(numeriInseriti);
 }, 30000);
-
-setTimeout(function(){
-  alert('Hai indovinato questi numeri ' + numeriIndovinati + ' totale: ' + numeriIndovinati.length)
-},30500)
