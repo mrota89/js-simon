@@ -55,6 +55,6 @@ setTimeout(function(){
   if(numeriIndovinati.length === 0) {
     alert('Hai Perso! Nessun numero indovinato.');
   } else {
-    alert('Hai indovinato questi numeri: ' + numeriIndovinatiAlert + ' \nPer un totale di: ' + numeriIndovinati.length);
+    alert('Hai ricordato questi numeri: ' + numeriIndovinatiAlert + ' \nPer un totale di: ' + numeriIndovinati.length);
   }
 }, timing * 1000);
